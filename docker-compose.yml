@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  tidebreak:
+    build: .
+    container_name: tidebreak_game
+    restart: unless-stopped
+    ports:
+      - "3000:3000"  # Multiplayer Socket.io server
+      - "8080:8080"  # WebGame static hosting
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
